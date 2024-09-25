@@ -29,16 +29,18 @@ export async function POST(request: Request) {
 
     const tasks = new TaskDB();
 
-    await tasks.addTask({
+    const task = {
       id: uuid(),
       title,
       description,
       completed: false,
       createdAt: new Date(),
       updatedAt: new Date(),
-    });
+    };
 
-    return NextResponse.json({ tasks });
+    await tasks.addTask(task);
+
+    return NextResponse.json({ task });
   } catch (error) {
     console.error("Something went wrong creating the task:", error);
     return NextResponse.json(

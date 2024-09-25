@@ -17,6 +17,6 @@ export type TaskSchema = z.infer<typeof taskSchema>;
 
 export type Task = TaskSchema & {
   id: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 };

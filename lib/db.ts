@@ -35,6 +35,7 @@ export class TaskDB {
         title: task.title,
         description: task.description,
         completed: task.completed,
+        updatedAt: new Date().toISOString(),
       };
     }
 

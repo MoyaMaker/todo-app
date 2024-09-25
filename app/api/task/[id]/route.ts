@@ -30,14 +30,16 @@ export async function PUT(
 
     const tasks = new TaskDB();
 
-    await tasks.updateTask({
+    const task = {
       id,
       title,
       description,
       completed,
-    });
+    };
 
-    return NextResponse.json({ tasks });
+    await tasks.updateTask(task);
+
+    return NextResponse.json({ task });
   } catch (error) {
     console.error("Something went wrong creating the task:", error);
     return NextResponse.json(

@@ -6,7 +6,12 @@ import { Task, TaskSchema } from "../schema/task-schema";
 export const useSWRTasks = () => {
   const { data, isLoading, error, mutate, isValidating } = useSWR<{
     tasks: Task[];
-  }>("/api/tasks", fetcher);
+  }>("/api/tasks", fetcher, {
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    revalidateIfStale: false,
+    errorRetryCount: 5,
+  });
 
   return {
     data,
