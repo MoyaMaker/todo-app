@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Make sure you have the `db.json` file in the `data` directory.
+
 First, run the development server:
 
 ```bash
